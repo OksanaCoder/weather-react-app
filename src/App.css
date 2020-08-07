@@ -1,8 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Chilanka&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Dosis:wght@300;400;500;600;700;800&display=swap');
-.App {
-  text-align: center;
-}
+
 .search-bar {
   border: none;
   border-radius: 50px;
@@ -13,24 +11,42 @@
   outline: none;
 }
 body {
-  background-image: url('img/rain.jpg') !important;
-  background-repeat: no-repeat;
+  text-align: center;
+   margin: auto;
+  /* background-image: url('img/rain.jpg'); */
+  /* background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 100vh; */
   font-family: 'Dosis', sans-serif !important;
   letter-spacing: 1px;
 }
 .back-rain {
-    background-image: '../img/rain.jpg';
+    background-image: url('img/rain.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Dosis', sans-serif !important;
 }
 .back-raining {
-  background-image: '../img/raining.jeg';
+  background-image: url('img/raining.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Dosis', sans-serif !important;
 }
 .back-sun {
-  background-image: '../img/sun.jpg';
+  background-image: url('img/sun.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Dosis', sans-serif !important;
 }
 .back-evening {
-  background-image: '../img/evening.jpg';
+  background-image: url('img/evening.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Dosis', sans-serif !important;
 }
 .weather-box {
   line-height: 60px;

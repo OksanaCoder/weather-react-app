@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Row } from 'react-bootstrap'
-
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 
 const App  = () => {
@@ -16,7 +18,7 @@ const url = "https://api.openweathermap.org/data/2.5/"
 
     const search = (e) => {
     // if (evt.key === 'Enter') {
-      e.preventDefault()
+      // e.preventDefault()
    
        fetch(`${url}weather?q=${query}&appid=${key}`)
        .then(resp => resp.json())
@@ -36,27 +38,33 @@ const url = "https://api.openweathermap.org/data/2.5/"
 
 
 
-     //  const dateBuilder = (day) = {
-    //          months = [],
-    //          days = [],
+      const dateBuilder = (d) =>  {
+          let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",  "November", "December"];
+          let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Satuarday"];
+            let  day = days[d.getDay()];
+            let  date = d.getDate();
+            let month = months[d.getMonth()];
+            let  year =  d.getFullYear();
 
-    //          day = days[d.getDay()],
-    //          date = d.getDate(),
-    //          month = month[d.getMonth()],
-    //          year =  d.getFullYear(),
 
+            return `${day} ${date} ${month} ${year}`
 
-    //         return `${day} ${date} ${month} ${year}`
-
-    //  }
+     }
      return (
-      <div className="App">
+      <div className={ 
+        ( typeof weather.main  != "undefined") 
+      ? ( (weather.main.temp > 16)
+           ? 'back-rain' : 'back-sun')
+           : 'back-sun'
+           
+      }>
+     
         <div className='container'>
-          <Row>
-            <Col lg={12}>
+          <Row style={{display: 'flex', justifyContent: 'center'}}>
+            <Col lg={12} style={{textAlign: 'center'}}>
              
               <input type='text'
-                className='search-bar'
+                className='search-bar mr-3'
                 placeholder='Search...'
                 onChange={(e) => setQuery(e.target.value)}
                 value={query}
@@ -64,27 +72,34 @@ const url = "https://api.openweathermap.org/data/2.5/"
        
                 
               />
-              <button onClick={search}></button>
+              <button onClick={search} style={{background: 'none', border: 'none'}}><FontAwesomeIcon style={{color: '#fff'}} icon={faSearch}/></button>
 
         {/* <h5>Weather for Anytime</h5> */}
             </Col>
           </Row>
           <Row>
-            <Col lg={12}>
-              
-              <div className='weather-box'>
-              <div className='weather' style={{color: '#fff', fontSize: '50px'}}>
-                  Cold
-                </div>
-              
-              <div className='location' style={{color: '#fff', fontSize: '30px'}}>
-                Kyiv {/* <div className='date'>{dateBuilder(new Date())}</div> */}
-              </div>
-                <div className='temp' style={{position: 'relative', color: '#fff', fontSize: '70px'}}>
-                  30
-                </div>
-               
-              </div>
+            <Col lg={12} style={{textAlign: 'center'}}>
+            {( typeof weather.main  != "undefined") ?
+            (
+                <div>
+                  <div className='weather-box'>
+                  <div className='weather' style={{color: '#fff', fontSize: '50px'}}>
+                      {weather.description}
+                    </div>
+                  
+                  <div className='location' style={{color: '#fff', fontSize: '30px'}}>
+                    {weather.name},  {weather.sys.country}
+                  </div>
+                  <div className='date text-white' >{dateBuilder(new Date())}</div>
+                    <div className='temp' style={{position: 'relative', color: '#fff', fontSize: '70px'}}>
+                      {Math.round(weather.main.temp)} 
+                    </div>
+                    
+                  </div>
+                  </div>
+              ) : (<h2 style={{color : '#fff', marginTop: '100px'}}>Enter city</h2>)
+              }
+             
 
             </Col>
           </Row>
