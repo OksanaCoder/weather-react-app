@@ -5,11 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Row } from 'react-bootstrap'
 
 
-const [query, setQuery] = useState('')
-const [weather, setWeather] = useState({})
-const  key = `4db3037f078521b122cfe50c8b39df46`
-const  url = `api.openweathermap.org/data/2.5/weather?q=${query}&appid=${key}`
-class App extends Component {
+
+const App  = () => {
 
   const [query, setQuery] = useState('')
   const [weather, setWeather] = useState({})
@@ -34,7 +31,7 @@ class App extends Component {
        search()
    }, [])
 
-  render() {
+
 
 
      //  const dateBuilder = (day) = {
@@ -62,6 +59,7 @@ class App extends Component {
                 onChange={(e) => setQuery(e.target.value)}
                 value={query}
                 onKeyPress={search}
+                
               />
 
         {/* <h5>Weather for Anytime</h5> */}
@@ -89,8 +87,7 @@ class App extends Component {
         </div>
       </div>
     )
-     }  
-
+     
 }
 
 export default App;
