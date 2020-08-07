@@ -11,25 +11,27 @@ const App  = () => {
   const [query, setQuery] = useState('')
   const [weather, setWeather] = useState({})
   const  key = `4db3037f078521b122cfe50c8b39df46`
-  const  url = `api.openweathermap.org/data/2.5/weather?q=${query}&appid=${key}`
+  // const  url = `api.openweathermap.org/data/2.5/weather?q=${query}&appid=${key}`
+const url = "https://api.openweathermap.org/data/2.5/"
 
-
-    const search = evt => {
-      if(evt.key === 'Enter') {
-
-       fetch(url)
+    const search = (e) => {
+    // if (evt.key === 'Enter') {
+      e.preventDefault()
+   
+       fetch(`${url}weather?q=${query}&appid=${key}`)
        .then(resp => resp.json())
        .then(result => {
          setWeather(result);
          setQuery('');
-         console.log(result)
+         console.log(weather)
        })
-      }
+      // }
+
     }
   
-   useEffect (() =>{
-       search()
-   }, [])
+   useEffect (() => {
+    search()
+   },[])
 
 
 
@@ -58,9 +60,11 @@ const App  = () => {
                 placeholder='Search...'
                 onChange={(e) => setQuery(e.target.value)}
                 value={query}
-                onKeyPress={search}
+                
+       
                 
               />
+              <button onClick={search}></button>
 
         {/* <h5>Weather for Anytime</h5> */}
             </Col>
