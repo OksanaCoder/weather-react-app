@@ -41,6 +41,23 @@ body {
   height: 100vh;
   font-family: 'Dosis', sans-serif !important;
 }
+.btn:focus {
+   outline: none;
+}
+.back-sun-1 {
+  background-image: url('img/sun-1.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Dosis', sans-serif !important;
+}
+.back-sun-2 {
+  background-image: url('img/sun-2.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Dosis', sans-serif !important;
+}
 .back-evening {
   background-image: url('img/evening.jpg');
   background-repeat: no-repeat;

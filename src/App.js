@@ -54,7 +54,7 @@ const url = "https://api.openweathermap.org/data/2.5/"
       <div className={ 
         ( typeof weather.main  != "undefined") 
       ? ( (weather.main.temp > 16)
-           ? 'back-rain' : 'back-sun')
+           ? 'back-sun-1' : 'back-sun')
            : 'back-sun'
            
       }>
@@ -72,7 +72,7 @@ const url = "https://api.openweathermap.org/data/2.5/"
        
                 
               />
-              <button onClick={search} style={{background: 'none', border: 'none'}}><FontAwesomeIcon style={{color: '#fff'}} icon={faSearch}/></button>
+              <button className='btn' onClick={search} style={{background: 'none', border: 'none'}}><FontAwesomeIcon style={{color: '#fff'}} icon={faSearch}/></button>
 
         {/* <h5>Weather for Anytime</h5> */}
             </Col>
@@ -83,16 +83,16 @@ const url = "https://api.openweathermap.org/data/2.5/"
             (
                 <div>
                   <div className='weather-box'>
-                  <div className='weather' style={{color: '#fff', fontSize: '50px'}}>
-                      {weather.description}
-                    </div>
                   
                   <div className='location' style={{color: '#fff', fontSize: '30px'}}>
                     {weather.name},  {weather.sys.country}
                   </div>
+                  <div className='weather' style={{color: '#fff', fontSize: '20px', letterSpacing: '5px'}}>
+                      {weather.weather[0].description}
+                    </div>
                   <div className='date text-white' >{dateBuilder(new Date())}</div>
                     <div className='temp' style={{position: 'relative', color: '#fff', fontSize: '70px'}}>
-                      {Math.round(weather.main.temp)} 
+                      {parseInt(Math.round((weather.main.temp - 32) * (5/9))  /100 * 10)} 
                     </div>
                     
                   </div>
