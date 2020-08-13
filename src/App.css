@@ -13,7 +13,11 @@
 }
 body {
   text-align: center;
-   margin: auto;
+   margin: 0 auto !important;
+   width: 30%;
+
+
+
   /* background-image: url('img/rain.jpg'); */
   /* background-repeat: no-repeat;
   background-size: cover;
@@ -21,12 +25,55 @@ body {
   font-family: 'Dosis', sans-serif !important;
   letter-spacing: 1px;
 }
-.back-rain {
+.scattered-clouds {
     background-image: url('img/rain.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     font-family: 'Dosis', sans-serif !important;
+}
+.clouds {
+  background-image: url('img/clouds.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Dosis', sans-serif !important;
+}
+.winter {
+  background-image: url('img/winter.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Dosis', sans-serif !important;
+}
+.night {
+  background-image: url('img/night.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Dosis', sans-serif !important;
+}
+.snow {
+  background-image: url('img/snow-1.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Dosis', sans-serif !important;
+}
+/* .night {
+  background-image: url('img/night.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Dosis', sans-serif !important;
+} */
+
+.night-sea {
+  background-image: url('img/night-sea.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Dosis', sans-serif !important;
 }
 .back-raining {
   background-image: url('img/raining.jpg');
@@ -47,6 +94,13 @@ body {
 }
 .back-sun-1 {
   background-image: url('img/sun-1.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Dosis', sans-serif !important;
+}
+.sunset {
+  background-image: url('img/sunset.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -76,10 +130,7 @@ body {
   align-items: center;
 
 }
-button:focus { 
-  outline:  none !important;
-  overflow: hidden !important;
-}
+
 .temp {
   text-shadow: 5px 8px 6px rgba(14, 13, 13, 0.55);
 }

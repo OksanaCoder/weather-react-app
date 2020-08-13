@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Row } from 'react-bootstrap'
 import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faBatteryThreeQuarters, faWifi, faCloudRain, faSun, faCloud } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faBatteryThreeQuarters, faWifi, faCloudRain, faSun, faCloud, faSnowflake } from '@fortawesome/free-solid-svg-icons'
 
 
 const App  = () => {
@@ -53,19 +53,32 @@ const url = "https://api.openweathermap.org/data/2.5/"
             return `${day} ${date} ${month} ${year}`
 
      }
+     const time =  new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
      return (
       <div className={ 
-        ( typeof weather.list  != "undefined") 
-      ? ( (weather.list[0].main.temp > 16)
-           ? 'back-sun-1' : 'back-sun' ) 
-           : 'back-sun'
+         typeof weather.list  != "undefined" 
+      ? (weather.list[0].main.temp > 12) && ( weather.list[0].weather[0].description === 'clear sky') && ('6:00:00 PM' > time && time > '6:00:00 AM')
+           ? 'back-sun-1' : 
+           (weather.list[0].main.temp > 12) && ( weather.list[0].weather[0].description === 'clear sky') && ('6:00:00 AM' > time && time > '01:00:00 AM')
+           ? 'night' : 
+           (weather.list[0].main.temp > 12) && ( weather.list[0].weather[0].description === 'broken clouds')  && ('6:00 PM' > time > '9:00 AM')
+            ? 'clouds' : 
+            (weather.list[0].main.temp > 12) && ( weather.list[0].weather[0].description === 'overcast clouds')  && ('6:00 PM' > time > '9:00 AM')
+            ? 'clouds' : 
+           (weather.list[0].main.temp > 0) && ( weather.list[0].weather[0].description === 'light rain') 
+           ? 'back-raining' : 
+           (weather.list[0].main.temp < 16) && ( weather.list[0].weather[0].description === 'scattered clouds')  && ('6:00 PM' > time > '9:00 AM')
+           ? 'scattered-clouds' : 
+           (weather.list[0].main.temp < 4) &&  ('6:00 PM' > time > '9:00 AM') ?
+           'winter' : 
+           'back-sun' : 'back-sun' 
            
       }>
      
         <div className='container'>
           <Row className='pt-2 text-white'>
             <Col >
-            {new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+           {time}
             </Col>
             <Col style={{textAlign: 'right'}}>
               <FontAwesomeIcon  icon={faWifi} style={{cololr: '#fff'}} />
@@ -133,8 +146,13 @@ const url = "https://api.openweathermap.org/data/2.5/"
                        <FontAwesomeIcon icon={faCloud} style={{color: '#fff'}} />: 
                        weather.list[3].weather[0].description === "clear sky" ?
                    
-                      <FontAwesomeIcon icon={faSun} style={{color: 'yellow'}} /> :
-                      <FontAwesomeIcon icon={faCloudRain} style={{color: '#fff'}} />
+                      <FontAwesomeIcon icon={faSun} style={{color: 'yellow'}} /> : 
+
+                      weather.list[3].weather[0].description === "light snow" ? 
+                      <FontAwesomeIcon icon={faSnowflake} style={{color: '#fff'}} /> :
+
+                      <FontAwesomeIcon icon={faCloudRain} style={{color: '#fff'}} /> 
+
 
                   }
                     
@@ -155,7 +173,11 @@ const url = "https://api.openweathermap.org/data/2.5/"
                        <FontAwesomeIcon icon={faCloud} style={{color: '#fff'}} />: 
                        weather.list[10].weather[0].description === "clear sky" ?
                    
+                       
                       <FontAwesomeIcon icon={faSun} style={{color: 'yellow'}} /> :
+                      weather.list[10].weather[0].description === "light snow" ? 
+                      <FontAwesomeIcon icon={faSnowflake} style={{color: '#fff'}} /> :
+
                       <FontAwesomeIcon icon={faCloudRain} style={{color: '#fff'}} />
 
                   }
@@ -175,6 +197,10 @@ const url = "https://api.openweathermap.org/data/2.5/"
                        weather.list[18].weather[0].description === "clear sky" ?
                    
                       <FontAwesomeIcon icon={faSun} style={{color: 'yellow'}} /> :
+
+                      weather.list[18].weather[0].description === "light snow" ? 
+                      <FontAwesomeIcon icon={faSnowflake} style={{color: '#fff'}} /> :
+
                       <FontAwesomeIcon icon={faCloudRain} style={{color: '#fff'}} />
 
                   }
@@ -195,6 +221,10 @@ const url = "https://api.openweathermap.org/data/2.5/"
                        weather.list[26].weather[0].description === "clear sky" ?
                    
                       <FontAwesomeIcon icon={faSun} style={{color: 'yellow'}} /> :
+
+                      weather.list[26].weather[0].description === "light snow" ? 
+                      <FontAwesomeIcon icon={faSnowflake} style={{color: '#fff'}} /> :
+
                       <FontAwesomeIcon icon={faCloudRain} style={{color: '#fff'}} />
 
                   }
@@ -214,6 +244,10 @@ const url = "https://api.openweathermap.org/data/2.5/"
                        weather.list[34].weather[0].description === "clear sky" ?
                    
                       <FontAwesomeIcon icon={faSun} style={{color: 'yellow'}} /> :
+
+                      weather.list[34].weather[0].description === "light snow" ? 
+                      <FontAwesomeIcon icon={faSnowflake} style={{color: '#fff'}} /> :
+
                       <FontAwesomeIcon icon={faCloudRain} style={{color: '#fff'}} />
 
                   }
