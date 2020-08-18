@@ -1,1 +1,5 @@
- [Weather-React-App](https://github.com/OksanaCoder/weather-react-app.git.io).
+ [Weather-React-App](https://oksanacoder.github.io/weather-react-app/).
+
+Used tools:
+♠️ React (+ hooks )
+♠️ Minimalism
