@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Dosis:wght@300;400;500;600;700;800&display=swap');
 
 .search-bar {
+  width: 100%;
   border: none;
   border-radius: 50px;
   padding: 5px 40px;
@@ -15,13 +16,6 @@ body {
   text-align: center;
    margin: 0 auto !important;
    width: 30%;
-
-
-
-  /* background-image: url('img/rain.jpg'); */
-  /* background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh; */
   font-family: 'Dosis', sans-serif !important;
   letter-spacing: 1px;
 }
@@ -60,13 +54,6 @@ body {
   height: 100vh;
   font-family: 'Dosis', sans-serif !important;
 }
-/* .night {
-  background-image: url('img/night.gif');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  font-family: 'Dosis', sans-serif !important;
-} */
 
 .night-sea {
   background-image: url('img/night-sea.gif');
@@ -86,7 +73,7 @@ body {
   background-image: url('img/sun.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 800px;
   font-family: 'Dosis', sans-serif !important;
 }
 .btn:focus {
@@ -96,28 +83,28 @@ body {
   background-image: url('img/sun-1.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 800px;
   font-family: 'Dosis', sans-serif !important;
 }
 .sunset {
   background-image: url('img/sunset.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 800px;
   font-family: 'Dosis', sans-serif !important;
 }
 .back-sun-2 {
   background-image: url('img/sun-2.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 800px;
   font-family: 'Dosis', sans-serif !important;
 }
 .back-evening {
   background-image: url('img/evening.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 800px;
   font-family: 'Dosis', sans-serif !important;
 }
 .weather-box {
@@ -138,33 +125,4 @@ body {
   content: "\00B0";
   position: absolute;
 
-}
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
